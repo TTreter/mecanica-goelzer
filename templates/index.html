@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecânica Göelzer - Sistema de Gestão</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/splash.css">
+    <link rel="stylesheet" href="/static/print.css" media="print">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Tela de Inicialização -->
+    <script>
+        // Define a URL base da API para que os scripts JS possam usá-la
+        const API_BASE_URL = window.location.origin; 
+    </script>
+    <script src="/static/splash.js"></script>
+    <!-- Conteúdo Principal do Sistema -->
+    <div id="app" class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo e Nome da Empresa -->
+            <div class="logo-container">
+                <img src="/static/logo.png" alt="Mecânica Göelzer" class="logo">
+                <h2>Mecânica Göelzer</h2>
+            </div>
+            
+            <nav class="nav">
+                <div class="nav-item active" onclick="showPage(\'dashboard\', event)">
+                    <span class="icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'clientes\', event)">
+                    <span class="icon">👥</span>
+                    <span>Clientes</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'veiculos\', event)">
+                    <span class="icon">🚗</span>
+                    <span>Veículos</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'servicos\', event)">
+                    <span class="icon">🔧</span>
+                    <span>Serviços</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'pecas\', event)">
+                    <span class="icon">📦</span>
+                    <span>Peças</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'ferramentas\', event)">
+                    <span class="icon">🛠️</span>
+                    <span>Ferramentas</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'agendamentos\', event)">
+                    <span class="icon">📅</span>
+                    <span>Agendamentos</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'ordens\', event)">
+                    <span class="icon">📋</span>
+                    <span>Ordens de Serviço</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'despesas\', event)">
+                    <span class="icon">💸</span>
+                    <span>Despesas Gerais</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'compras\', event)">
+                    <span class="icon">🛒</span>
+                    <span>Compras</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'financeiro\', event)">
+                    <span class="icon">💰</span>
+                    <span>Financeiro</span>
+                </div>
+                <div class="nav-item" onclick="showPage(\'relatorios\', event)">
+                    <span class="icon">📈</span>
+                    <span>Relatórios</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard -->
+            <div id="dashboard" class="page">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <div>
+                        <button class="btn btn-secondary" onclick="exportarBackupCompleto()">📥 Backup Completo</button>
+                        <button class="btn btn-secondary" onclick="importarBackup()">📤 Importar Backup</button>
+                        <button class="btn btn-info" onclick="mostrarStatusBackup()">🔒 Status Segurança</button>
+                        <button class="btn btn-warning" onclick="restaurarVersaoAnterior()">⏮️ Restaurar Versão</button>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Total de Clientes</div>
+                            <div class="stat-value" id="totalClientes">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚗</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Total de Veículos</div>
+                            <div class="stat-value" id="totalVeiculos">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-info">
+                            <div class="stat-label">OS Abertas</div>
+                            <div class="stat-value" id="ordensAbertas">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Receita do Mês</div>
+                            <div class="stat-value" id="receitaMensal">R$ 0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card danger">
+                        <div class="stat-icon">📉</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Despesas do Mês</div>
+                            <div class="stat-value" id="despesaMensal">R$ 0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card info">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Lucro do Mês</div>
+                            <div class="stat-value" id="lucroMensal">R$ 0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Ordens de Serviço Recentes</h3>
+                    <div id="ordensRecentes"></div>
+                </div>
+
+                <div class="card">
+                    <h3>⚠️ Alertas de Estoque</h3>
+                    <div id="alertasEstoque"></div>
+                </div>
+
+                <div class="card" id="graficoCard">
+                    <h3>📈 Receitas vs Despesas (Últimos 6 meses)</h3>
+                    <canvas id="graficoFinanceiro" style="max-height: 300px;"></canvas>
+                </div>
+            </div>
+
+            <!-- Clientes -->
+            <div id="clientes" class="page hidden">
+                <div class="page-header">
+                    <h1>Clientes</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'clienteModal\')">+ Novo Cliente</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-controls">
+                        <input type="text" class="search-box" placeholder="🔍 Buscar cliente..." onkeyup="filtrarTabela(\'clientesTable\', this.value)">
+                    </div>
+                    <div class="table-responsive">
+                        <table id="clientesTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>CPF/CNPJ</th>
+                                    <th>Telefone</th>
+                                    <th>Email</th>
+                                    <th>Veículos</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clientesBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Veículos -->
+            <div id="veiculos" class="page hidden">
+                <div class="page-header">
+                    <h1>Veículos</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'veiculoModal\')">+ Novo Veículo</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-controls">
+                        <input type="text" class="search-box" placeholder="🔍 Buscar veículo..." onkeyup="filtrarTabela(\'veiculosTable\', this.value)">
+                    </div>
+                    <div class="table-responsive">
+                        <table id="veiculosTable">
+                            <thead>
+                                <tr>
+                                    <th>Placa</th>
+                                    <th>Marca</th>
+                                    <th>Modelo</th>
+                                    <th>Ano</th>
+                                    <th>Cliente</th>
+                                    <th>KM</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="veiculosBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serviços -->
+            <div id="servicos" class="page hidden">
+                <div class="page-header">
+                    <h1>Catálogo de Serviços</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'servicoModal\')">+ Novo Serviço</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-responsive">
+                        <table id="servicosTable">
+                            <thead>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Valor Mão de Obra</th>
+                                    <th>Tempo Estimado</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="servicosBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Peças -->
+            <div id="pecas" class="page hidden">
+                <div class="page-header">
+                    <h1>Catálogo de Peças</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'pecaModal\')">+ Nova Peça</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-responsive">
+                        <table id="pecasTable">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descrição</th>
+                                    <th>Fornecedor</th>
+                                    <th>Preço Venda</th>
+                                    <th>Estoque</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pecasBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ferramentas -->
+            <div id="ferramentas" class="page hidden">
+                <div class="page-header">
+                    <h1>Ferramentas</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'ferramentaModal\')">+ Nova Ferramenta</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-responsive">
+                        <table id="ferramentasTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Status</th>
+                                    <th>Localização</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ferramentasBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agendamentos -->
+            <div id="agendamentos" class="page hidden">
+                <div class="page-header">
+                    <h1>Agendamentos</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'agendamentoModal\')">+ Novo Agendamento</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-responsive">
+                        <table id="agendamentosTable">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Hora</th>
+                                    <th>Cliente</th>
+                                    <th>Veículo</th>
+                                    <th>Serviço</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="agendamentosBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ordens de Serviço -->
+            <div id="ordens" class="page hidden">
+                <div class="page-header">
+                    <h1>Ordens de Serviço</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'ordemModal\')">+ Nova OS</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-controls">
+                        <input type="text" class="search-box" placeholder="🔍 Buscar OS..." onkeyup="filtrarTabela(\'ordensTable\', this.value)">
+                    </div>
+                    <div class="table-responsive">
+                        <table id="ordensTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Veículo</th>
+                                    <th>Data Abertura</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordensBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Despesas Gerais -->
+            <div id="despesas" class="page hidden">
+                <div class="page-header">
+                    <h1>Despesas Gerais</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'despesaModal\')">+ Nova Despesa</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-responsive">
+                        <table id="despesasTable">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Valor</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="despesasBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compras -->
+            <div id="compras" class="page hidden">
+                <div class="page-header">
+                    <h1>Compras</h1>
+                    <button class="btn btn-primary" onclick="openModal(\'compraModal\')">+ Nova Compra</button>
+                </div>
+                
+                <div class="card">
+                    <div class="table-responsive">
+                        <table id="comprasTable">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Fornecedor</th>
+                                    <th>Total</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comprasBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financeiro -->
+            <div id="financeiro" class="page hidden">
+                <div class="page-header">
+                    <h1>Financeiro</h1>
+                </div>
+                
+                <div class="card">
+                    <h3>Movimentações Recentes</h3>
+                    <div class="table-responsive">
+                        <table id="movimentacoesTable">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Tipo</th>
+                                    <th>Descrição</th>
+                                    <th>Valor</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="movimentacoesBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Relatórios -->
+            <div id="relatorios" class="page hidden">
+                <div class="page-header">
+                    <h1>Relatórios</h1>
+                </div>
+                
+                <div class="card">
+                    <h3>Relatório Financeiro Anual</h3>
+                    <form onsubmit="gerarRelatorioFinanceiro(event)">
+                        <div class="form-group">
+                            <label for="anoRelatorio">Ano:</label>
+                            <input type="number" id="anoRelatorio" value="2023" min="2000" max="2100">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gerar Relatório</button>
+                    </form>
+                    <div id="resultadoRelatorio" class="mt-3"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Container para Modals -->
+    <div id="modalContainer"></div>
+
+    <!-- Scripts -->
+    <script src="/static/app.js"></script>
+    <script src="/static/calculos.js"></script>
+    <script src="/static/edicao_exclusao.js"></script>
+    <script src="/static/exportacao.js"></script>
+    <script src="/static/filtros_busca.js"></script>
+    <script src="/static/graficos.js"></script>
+    <script src="/static/mascaras.js"></script>
+    <script src="/static/melhorias.js"></script>
+    <script src="/static/notificacoes.js"></script>
+    <script src="/static/paginacao_ordenacao.js"></script>
+    <script src="/static/pdf_profissional.js"></script>
+    <script src="/static/relatorios_avancados.js"></script>
+    <script src="/static/seguranca.js"></script>
+    <script src="/static/testes_seguranca.js"></script>
+    <script src="/static/validacoes.js"></script>
+    <script src="/static/atualizacao_automatica.js"></script>
+    <script src="/static/correcoes_completas.js"></script>
+    <script src="/static/correcoes_final.js"></script>
+    <script src="/static/diagnostico.js"></script>
+</body>
+</html>
+

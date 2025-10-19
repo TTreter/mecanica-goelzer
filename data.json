@@ -1,0 +1,93 @@
+{
+    "clientes": [],
+    "veiculos": [],
+    "servicos": [
+        {
+            "id": 1,
+            "descricao": "Troca de Óleo",
+            "categoria": "Manutenção",
+            "valorMaoObra": 50.0,
+            "tempoEstimado": "30 min"
+        },
+        {
+            "id": 2,
+            "descricao": "Alinhamento",
+            "categoria": "Suspensão",
+            "valorMaoObra": 80.0,
+            "tempoEstimado": "1 hora"
+        },
+        {
+            "id": 3,
+            "descricao": "Balanceamento",
+            "categoria": "Suspensão",
+            "valorMaoObra": 60.0,
+            "tempoEstimado": "45 min"
+        },
+        {
+            "id": 4,
+            "descricao": "Troca de Pastilhas de Freio",
+            "categoria": "Freios",
+            "valorMaoObra": 120.0,
+            "tempoEstimado": "1.5 horas"
+        },
+        {
+            "id": 5,
+            "descricao": "Revisão Completa",
+            "categoria": "Manutenção",
+            "valorMaoObra": 200.0,
+            "tempoEstimado": "3 horas"
+        }
+    ],
+    "pecas": [
+        {
+            "id": 1,
+            "codigo": "P001",
+            "descricao": "Óleo 5W30",
+            "fornecedor": "Petrobras",
+            "custoUnitario": 25.0,
+            "precoVenda": 45.0,
+            "quantidadeEstoque": 50,
+            "estoqueMinimo": 10
+        },
+        {
+            "id": 2,
+            "codigo": "P002",
+            "descricao": "Filtro de Óleo",
+            "fornecedor": "Mann",
+            "custoUnitario": 15.0,
+            "precoVenda": 30.0,
+            "quantidadeEstoque": 30,
+            "estoqueMinimo": 5
+        },
+        {
+            "id": 3,
+            "codigo": "P003",
+            "descricao": "Pastilha de Freio",
+            "fornecedor": "Bosch",
+            "custoUnitario": 80.0,
+            "precoVenda": 150.0,
+            "quantidadeEstoque": 20,
+            "estoqueMinimo": 5
+        },
+        {
+            "id": 4,
+            "codigo": "P004",
+            "descricao": "Disco de Freio",
+            "fornecedor": "Bosch",
+            "custoUnitario": 120.0,
+            "precoVenda": 220.0,
+            "quantidadeEstoque": 15,
+            "estoqueMinimo": 3
+        }
+    ],
+    "ferramentas": [],
+    "agendamentos": [],
+    "ordens": [],
+    "compras": [],
+    "movimentacoes": [],
+    "despesasGerais": [],
+    "orcamentos": [],
+    "movimentacoes_estoque": [],
+    "logs": [],
+    "contas_a_receber": []
+}

@@ -1,0 +1,199 @@
+/* ========================================
+   TELA DE INICIALIZAÇÃO (SPLASH SCREEN)
+   Mecânica Göelzer
+   ======================================== */
+
+/* Container da tela de inicialização */
+#splashScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animação de saída */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Classe para esconder a splash screen */
+#splashScreen.hidden {
+    animation: fadeOut 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+/* Container do logo */
+.splash-logo-container {
+    margin-bottom: 30px;
+    animation: zoomIn 0.8s ease-out;
+}
+
+/* Animação do logo */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Logo */
+.splash-logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    background: white;
+    padding: 20px;
+    object-fit: contain;
+}
+
+/* Nome da empresa */
+.splash-title {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.8s ease-out 0.3s;
+    animation-fill-mode: backwards;
+}
+
+/* Animação do título */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Subtítulo */
+.splash-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
+    margin-bottom: 40px;
+    animation: slideUp 0.8s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+/* Container do loading */
+.splash-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 0.8s ease-out 0.7s;
+    animation-fill-mode: backwards;
+}
+
+/* Barra de progresso */
+.progress-bar {
+    width: 300px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Preenchimento da barra */
+.progress-fill {
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    animation: progressAnimation 2s ease-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Animação da barra de progresso */
+@keyframes progressAnimation {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Texto de loading */
+.loading-text {
+    color: white;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* Spinner de loading (alternativo) */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+/* Animação do spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Versão do sistema */
+.splash-version {
+    position: absolute;
+    bottom: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .splash-logo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .splash-title {
+        font-size: 32px;
+    }
+    
+    .splash-subtitle {
+        font-size: 16px;
+    }
+    
+    .progress-bar {
+        width: 250px;
+    }
+}
+

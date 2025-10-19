@@ -1,0 +1,97 @@
+/* ========== CSS PARA IMPRESSÃO DE RELATÓRIOS ========== */
+
+/* Esconder tudo na impressão por padrão */
+@media print {
+    /* Esconder elementos da interface */
+    .sidebar,
+    nav,
+    header,
+    .menu,
+    button,
+    .btn,
+    input[type="button"],
+    input[type="submit"],
+    .no-print,
+    .acoes,
+    .filtros {
+        display: none !important;
+    }
+    
+    /* Esconder todas as seções de página */
+    .page-section {
+        display: none !important;
+    }
+    
+    /* Mostrar APENAS o modal de relatório quando estiver aberto */
+    #modalRelatorio {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Esconder overlay e botões do modal */
+    .modal-overlay,
+    .modal-header button,
+    .modal-footer,
+    .modal-close {
+        display: none !important;
+    }
+    
+    /* Estilizar conteúdo do relatório para impressão */
+    .modal-content,
+    #conteudoRelatorio {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: white !important;
+    }
+    
+    /* Garantir que tabelas fiquem bonitas na impressão */
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        page-break-inside: avoid !important;
+    }
+    
+    th, td {
+        border: 1px solid #000 !important;
+        padding: 8px !important;
+        text-align: left !important;
+    }
+    
+    th {
+        background-color: #f0f0f0 !important;
+        font-weight: bold !important;
+    }
+    
+    /* Evitar quebras de página indesejadas */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid !important;
+    }
+    
+    /* Configurações gerais de impressão */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Garantir que apenas o relatório seja impresso */
+    body > *:not(#modalRelatorio) {
+        display: none !important;
+    }
+}
+

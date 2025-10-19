@@ -1,0 +1,87 @@
+✅ Dados carregados com sucesso!
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://169.254.0.21:5000
+[33mPress CTRL+C to quit[0m
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET / HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/splash.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/splash.css HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/styles.css HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/app.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/logo.png HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/calculos.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/edicao_exclusao.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/exportacao.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/filtros_busca.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/graficos.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/mascaras.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/paginacao_ordenacao.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/pdf_profissional.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/notificacoes.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/testes_seguranca.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/melhorias.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/seguranca.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/validacoes.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/correcoes_completas.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/atualizacao_automatica.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/print.css HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/correcoes_final.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/diagnostico.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "GET /static/relatorios_avancados.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:22:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET / HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET /static/splash.css HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET /static/styles.css HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET /static/splash.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET /static/app.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET /static/logo.png HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET /static/edicao_exclusao.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:26] "GET /static/calculos.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/filtros_busca.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/graficos.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/mascaras.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/notificacoes.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/exportacao.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/pdf_profissional.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/melhorias.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/seguranca.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/paginacao_ordenacao.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/relatorios_avancados.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/print.css HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/correcoes_completas.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/validacoes.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/atualizacao_automatica.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/testes_seguranca.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/diagnostico.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "GET /static/correcoes_final.js HTTP/1.1" 200 -
+10.148.174.1 - - [18/Oct/2025 22:24:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+10.148.174.1 - - [18/Oct/2025 22:24:32] "GET / HTTP/1.1" 200 -
+10.139.93.1 - - [18/Oct/2025 23:03:24] "GET /api/clientes HTTP/1.1" 200 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "GET / HTTP/1.1" 200 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/splash.css HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/logo.png HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/splash.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/app.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/calculos.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/edicao_exclusao.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/filtros_busca.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/graficos.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/exportacao.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/mascaras.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/melhorias.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/testes_seguranca.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/pdf_profissional.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/validacoes.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/notificacoes.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/paginacao_ordenacao.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/seguranca.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/relatorios_avancados.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/atualizacao_automatica.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/diagnostico.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/correcoes_final.js HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/print.css HTTP/1.1[0m" 304 -
+10.139.93.1 - - [18/Oct/2025 23:04:49] "[36mGET /static/correcoes_completas.js HTTP/1.1[0m" 304 -
