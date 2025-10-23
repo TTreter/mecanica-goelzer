@@ -1,7 +1,7 @@
 
 // Sistema de Gestão para Oficina Mecânica - v2.0 com Backend Python/Flask
 
-const API_BASE_URL = 
+const API_BASE_URL = "/api";
 
 // ========== ESTRUTURA DE DADOS (CACHE LOCAL) ==========
 let dados = {
@@ -27,6 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Configura listeners de eventos que não dependem de dados dinâmicos
     configurarListenersEstaticos();
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', (event) => {
+            const pageId = event.currentTarget.dataset.page;
+            if (pageId) {
+                showPage(pageId);
+            }
+        });
+    });
+
+    // Exibe o dashboard por padrão ao carregar a página
+    showPage("dashboard");
 
     console.log("✅ Sistema (Frontend) carregado com sucesso!");
 });
@@ -239,6 +251,55 @@ function criarLinhaOrdem(ordem) {
     `;
 }
 
+
+/**
+ * Exibe a página correspondente ao ID fornecido e oculta as outras.
+ * @param {string} pageId - O ID da página a ser exibida (ex: "dashboard", "clientes").
+ */
+function showPage(pageId) {
+    console.log(`Attempting to show page: ${pageId}`);
+    const pages = document.querySelectorAll(".page");
+    pages.forEach(page => {
+        if (page.id === pageId) {
+            page.classList.remove("hidden");
+        } else {
+            page.classList.add("hidden");
+        }
+    });
+    // Atualiza o estado ativo da navegação
+    const navLinks = document.querySelectorAll(".sidebar-menu a");
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.dataset.page === pageId) {
+            link.classList.add("active");
+        }
+    });
+
+    // Renderiza a tabela da página se for uma página de listagem
+    if (pageId === "clientes") {
+        renderizarTabela("clientes", "clientesBody", criarLinhaCliente);
+    } else if (pageId === "veiculos") {
+        renderizarTabela("veiculos", "veiculosBody", criarLinhaVeiculo);
+    } else if (pageId === "servicos") {
+        renderizarTabela("servicos", "servicosTable", criarLinhaServico, true);
+    } else if (pageId === "pecas") {
+        renderizarTabela("pecas", "pecasTable", criarLinhaPeca, true);
+    } else if (pageId === "ferramentas") {
+        renderizarTabela("ferramentas", "ferramentasBody", criarLinhaFerramenta);
+    } else if (pageId === "agendamentos") {
+        renderizarTabela("agendamentos", "agendamentosBody", criarLinhaAgendamento);
+    } else if (pageId === "ordens") {
+        renderizarTabela("ordens", "ordensBody", criarLinhaOrdem);
+    } else if (pageId === "compras") {
+        renderizarTabela("compras", "comprasBody", criarLinhaCompra);
+    } else if (pageId === "despesas") {
+        renderizarTabela("despesasGerais", "despesasBody", criarLinhaDespesa);
+    } else if (pageId === "financeiro") {
+        renderizarTabela("movimentacoes", "movimentacoesBody", criarLinhaMovimentacao);
+    } else if (pageId === "orcamentos") {
+        renderizarTabela("orcamentos", "orcamentosBody", criarLinhaOrcamento);
+    }
+}
 
 // ========== FUNÇÕES DE CRUD (CLIENT-SIDE) ==========
 

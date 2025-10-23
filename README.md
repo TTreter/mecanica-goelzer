@@ -45,7 +45,7 @@ Execute o script principal do Python. Isso iniciará o servidor web Flask, que s
 python3 main.py
 ```
 
-Após a execução, o terminal exibirá uma mensagem indicando que o servidor está rodando. Geralmente, ele estará disponível em `http://127.0.0.1:5000/`.
+**Observação:** O sistema agora está configurado para que a navegação entre as seções (Clientes, Veículos, etc.) seja feita corretamente.
 
 ### 4. Acessar a Aplicação
 
@@ -61,7 +61,7 @@ Você verá a interface do sistema Mecânica Goelzer. Todos os dados serão pers
 *   `data.json`: Arquivo JSON onde todos os dados do sistema são armazenados.
 *   `templates/`: Contém os arquivos HTML do frontend (ex: `index.html`).
 *   `static/`: Contém os arquivos CSS, JavaScript e imagens do frontend.
-    *   `static/app.js`: Lógica principal do frontend, adaptada para consumir as APIs do backend.
+    *   `static/app.js`: Lógica principal do frontend, adaptada para consumir as APIs do backend e gerenciar a navegação.
     *   Outros arquivos `.js`: Scripts específicos para diferentes funcionalidades (cálculos, edição, exportação, etc.).
     *   `static/styles.css`: Estilos CSS da aplicação.
 

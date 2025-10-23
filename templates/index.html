@@ -14,10 +14,11 @@
 <body>
     <!-- Tela de Inicialização -->
     <script>
-        // Define a URL base da API para que os scripts JS possam usá-la
-        const API_BASE_URL = window.location.origin; 
+
     </script>
     <script src="/static/splash.js"></script>
+    <script src="/static/app.js"></script>
+
     <!-- Conteúdo Principal do Sistema -->
     <div id="app" class="container">
         <!-- Sidebar -->
@@ -29,51 +30,51 @@
             </div>
             
             <nav class="nav">
-                <div class="nav-item active" onclick="showPage(\'dashboard\', event)">
+                <div class="nav-item active" data-page="dashboard">
                     <span class="icon">📊</span>
                     <span>Dashboard</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'clientes\', event)">
+                <div class="nav-item" data-page="clientes">
                     <span class="icon">👥</span>
                     <span>Clientes</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'veiculos\', event)">
+                <div class="nav-item" data-page="veiculos">
                     <span class="icon">🚗</span>
                     <span>Veículos</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'servicos\', event)">
+                <div class="nav-item" data-page="servicos">
                     <span class="icon">🔧</span>
                     <span>Serviços</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'pecas\', event)">
+                <div class="nav-item" data-page="pecas">
                     <span class="icon">📦</span>
                     <span>Peças</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'ferramentas\', event)">
+                <div class="nav-item" data-page="ferramentas">
                     <span class="icon">🛠️</span>
                     <span>Ferramentas</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'agendamentos\', event)">
+                <div class="nav-item" data-page="agendamentos">
                     <span class="icon">📅</span>
                     <span>Agendamentos</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'ordens\', event)">
+                <div class="nav-item" data-page="ordens">
                     <span class="icon">📋</span>
                     <span>Ordens de Serviço</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'despesas\', event)">
+                <div class="nav-item" data-page="despesas">
                     <span class="icon">💸</span>
                     <span>Despesas Gerais</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'compras\', event)">
+                <div class="nav-item" data-page="compras">
                     <span class="icon">🛒</span>
                     <span>Compras</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'financeiro\', event)">
+                <div class="nav-item" data-page="financeiro">
                     <span class="icon">💰</span>
                     <span>Financeiro</span>
                 </div>
-                <div class="nav-item" onclick="showPage(\'relatorios\', event)">
+                <div class="nav-item" data-page="relatorios">
                     <span class="icon">📈</span>
                     <span>Relatórios</span>
                 </div>
@@ -444,7 +445,7 @@
     <div id="modalContainer"></div>
 
     <!-- Scripts -->
-    <script src="/static/app.js"></script>
+
     <script src="/static/calculos.js"></script>
     <script src="/static/edicao_exclusao.js"></script>
     <script src="/static/exportacao.js"></script>
