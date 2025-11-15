@@ -17,7 +17,7 @@
 
     </script>
     <script src="/static/splash.js"></script>
-    <script src="/static/app.js"></script>
+    
 
     <!-- Conteúdo Principal do Sistema -->
     <div id="app" class="container">
@@ -30,51 +30,51 @@
             </div>
             
             <nav class="nav">
-                <div class="nav-item active" data-page="dashboard">
+                <div class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
                     <span class="icon">📊</span>
                     <span>Dashboard</span>
                 </div>
-                <div class="nav-item" data-page="clientes">
+                <div class="nav-item" data-page="clientes" onclick="showPage('clientes')">
                     <span class="icon">👥</span>
                     <span>Clientes</span>
                 </div>
-                <div class="nav-item" data-page="veiculos">
+                <div class="nav-item" data-page="veiculos" onclick="showPage('veiculos')">
                     <span class="icon">🚗</span>
                     <span>Veículos</span>
                 </div>
-                <div class="nav-item" data-page="servicos">
+                <div class="nav-item" data-page="servicos" onclick="showPage('servicos')">
                     <span class="icon">🔧</span>
                     <span>Serviços</span>
                 </div>
-                <div class="nav-item" data-page="pecas">
+                <div class="nav-item" data-page="pecas" onclick="showPage('pecas')">
                     <span class="icon">📦</span>
                     <span>Peças</span>
                 </div>
-                <div class="nav-item" data-page="ferramentas">
+                <div class="nav-item" data-page="ferramentas" onclick="showPage('ferramentas')">
                     <span class="icon">🛠️</span>
                     <span>Ferramentas</span>
                 </div>
-                <div class="nav-item" data-page="agendamentos">
+                <div class="nav-item" data-page="agendamentos" onclick="showPage('agendamentos')">
                     <span class="icon">📅</span>
                     <span>Agendamentos</span>
                 </div>
-                <div class="nav-item" data-page="ordens">
+                <div class="nav-item" data-page="ordens" onclick="showPage('ordens')">
                     <span class="icon">📋</span>
                     <span>Ordens de Serviço</span>
                 </div>
-                <div class="nav-item" data-page="despesas">
+                <div class="nav-item" data-page="despesas" onclick="showPage('despesas')">
                     <span class="icon">💸</span>
                     <span>Despesas Gerais</span>
                 </div>
-                <div class="nav-item" data-page="compras">
+                <div class="nav-item" data-page="compras" onclick="showPage('compras')">
                     <span class="icon">🛒</span>
                     <span>Compras</span>
                 </div>
-                <div class="nav-item" data-page="financeiro">
+                <div class="nav-item" data-page="financeiro" onclick="showPage('financeiro')">
                     <span class="icon">💰</span>
                     <span>Financeiro</span>
                 </div>
-                <div class="nav-item" data-page="relatorios">
+                <div class="nav-item" data-page="relatorios" onclick="showPage('relatorios')">
                     <span class="icon">📈</span>
                     <span>Relatórios</span>
                 </div>
@@ -160,7 +160,7 @@
             <div id="clientes" class="page hidden">
                 <div class="page-header">
                     <h1>Clientes</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'clienteModal\')">+ Novo Cliente</button>
+                    <button class="btn btn-primary" onclick="openModal('clienteModal')"">+ Novo Cliente</button>
                 </div>
                 
                 <div class="card">
@@ -189,7 +189,7 @@
             <div id="veiculos" class="page hidden">
                 <div class="page-header">
                     <h1>Veículos</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'veiculoModal\')">+ Novo Veículo</button>
+                    <button class="btn btn-primary" onclick="openModal('veiculoModal')"">+ Novo Veículo</button>
                 </div>
                 
                 <div class="card">
@@ -219,7 +219,7 @@
             <div id="servicos" class="page hidden">
                 <div class="page-header">
                     <h1>Catálogo de Serviços</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'servicoModal\')">+ Novo Serviço</button>
+                    <button class="btn btn-primary" onclick="openModal('servicoModal')"">+ Novo Serviço</button>
                 </div>
                 
                 <div class="card">
@@ -244,7 +244,7 @@
             <div id="pecas" class="page hidden">
                 <div class="page-header">
                     <h1>Catálogo de Peças</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'pecaModal\')">+ Nova Peça</button>
+                    <button class="btn btn-primary" onclick="openModal('pecaModal')"">+ Nova Peça</button>
                 </div>
                 
                 <div class="card">
@@ -270,7 +270,7 @@
             <div id="ferramentas" class="page hidden">
                 <div class="page-header">
                     <h1>Ferramentas</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'ferramentaModal\')">+ Nova Ferramenta</button>
+                    <button class="btn btn-primary" onclick="openModal('ferramentaModal')"">+ Nova Ferramenta</button>
                 </div>
                 
                 <div class="card">
@@ -294,7 +294,7 @@
             <div id="agendamentos" class="page hidden">
                 <div class="page-header">
                     <h1>Agendamentos</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'agendamentoModal\')">+ Novo Agendamento</button>
+                    <button class="btn btn-primary" onclick="openModal('agendamentoModal')"">+ Novo Agendamento</button>
                 </div>
                 
                 <div class="card">
@@ -321,7 +321,7 @@
             <div id="ordens" class="page hidden">
                 <div class="page-header">
                     <h1>Ordens de Serviço</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'ordemModal\')">+ Nova OS</button>
+                    <button class="btn btn-primary" onclick="openModal('ordemModal')"">+ Nova OS</button>
                 </div>
                 
                 <div class="card">
@@ -351,7 +351,7 @@
             <div id="despesas" class="page hidden">
                 <div class="page-header">
                     <h1>Despesas Gerais</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'despesaModal\')">+ Nova Despesa</button>
+                    <button class="btn btn-primary" onclick="openModal('despesaModal')"">+ Nova Despesa</button>
                 </div>
                 
                 <div class="card">
@@ -375,7 +375,7 @@
             <div id="compras" class="page hidden">
                 <div class="page-header">
                     <h1>Compras</h1>
-                    <button class="btn btn-primary" onclick="openModal(\'compraModal\')">+ Nova Compra</button>
+                    <button class="btn btn-primary" onclick="openModal('compraModal')"">+ Nova Compra</button>
                 </div>
                 
                 <div class="card">
@@ -442,10 +442,120 @@
     </div>
 
     <!-- Container para Modals -->
-    <div id="modalContainer"></div>
+    <div id="modalContainer">
+        <!-- Modal de Agendamento -->
+        <div id="agendamentoModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="agendamentoModalTitle">Novo Agendamento</h2>
+                    <span class="close" onclick="fecharModal('agendamentoModal')">×</span>
+                </div>
+                <form onsubmit="salvarAgendamento(event)">
+                    <input type="hidden" id="agendamentoId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Data *</label>
+                            <input type="date" id="agendamentoData" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Hora *</label>
+                            <input type="time" id="agendamentoHora" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cliente *</label>
+                        <select id="agendamentoCliente" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Veículo *</label>
+                        <select id="agendamentoVeiculo" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Serviço *</label>
+                        <select id="agendamentoServico" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="agendamentoStatus">
+                            <option value="Pendente">Pendente</option>
+                            <option value="Confirmado">Confirmado</option>
+                            <option value="Cancelado">Cancelado</option>
+                            <option value="Concluído">Concluído</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="button" class="btn btn-secondary" onclick="fecharModal('agendamentoModal')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Ordem de Serviço -->
+        <div id="ordemModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="ordemModalTitle">Nova Ordem de Serviço</h2>
+                    <span class="close" onclick="fecharModal('ordemModal')">×</span>
+                </div>
+                <form onsubmit="salvarOrdemServico(event)">
+                    <input type="hidden" id="ordemId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Cliente *</label>
+                            <select id="ordemCliente" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Veículo *</label>
+                            <select id="ordemVeiculo" required></select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Data Abertura *</label>
+                            <input type="date" id="ordemDataAbertura" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="ordemStatus">
+                                <option value="Aberta">Aberta</option>
+                                <option value="Em Andamento">Em Andamento</option>
+                                <option value="Aguardando Peças">Aguardando Peças</option>
+                                <option value="Finalizada">Finalizada</option>
+                                <option value="Entregue">Entregue</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Serviços</label>
+                        <div id="ordemServicosContainer">
+                            <!-- Serviços serão adicionados aqui -->
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-small" onclick="adicionarServicoOS()">+ Adicionar Serviço</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Peças</label>
+                        <div id="ordemPecasContainer">
+                            <!-- Peças serão adicionadas aqui -->
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-small" onclick="adicionarPecaOS()">+ Adicionar Peça</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Observações</label>
+                        <textarea id="ordemObservacoes"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-primary">Salvar OS</button>
+                        <button type="button" class="btn btn-secondary" onclick="fecharModal('ordemModal')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
 
+    <script src="/static/app.js"></script>
     <script src="/static/calculos.js"></script>
     <script src="/static/edicao_exclusao.js"></script>
     <script src="/static/exportacao.js"></script>
@@ -464,6 +574,7 @@
     <script src="/static/correcoes_completas.js"></script>
     <script src="/static/correcoes_final.js"></script>
     <script src="/static/diagnostico.js"></script>
+
 </body>
 </html>
 
