@@ -19,6 +19,7 @@ let dados = {
 document.addEventListener('DOMContentLoaded', () => {
     carregarDados();
     criarModals();
+    inicializarNavegacao();
     atualizarDashboard();
     renderizarTudo();
     
@@ -29,6 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     console.log('✅ Sistema carregado com sucesso!');
 });
+
+// Inicializar navegação também após um pequeno delay para garantir que o DOM está pronto
+setTimeout(() => {
+    if (document.querySelectorAll('.nav-item').length > 0) {
+        inicializarNavegacao();
+    }
+}, 500);
 
 // ========== FUNÇÕES DE ARMAZENAMENTO ==========
 function carregarDados() {
@@ -71,19 +79,53 @@ function inicializarDadosExemplo() {
 
 // ========== NAVEGAÇÃO ==========
 function showPage(pageId, event) {
+    console.log('Navegando para:', pageId);
+    
+    // Ocultar todas as páginas
     document.querySelectorAll('.page').forEach(page => {
         page.classList.add('hidden');
     });
-    document.getElementById(pageId).classList.remove('hidden');
     
+    // Mostrar a página selecionada
+    const pageElement = document.getElementById(pageId);
+    if (pageElement) {
+        pageElement.classList.remove('hidden');
+    } else {
+        console.error('Página não encontrada:', pageId);
+        return;
+    }
+    
+    // Atualizar o item de navegação ativo
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
     });
-    if (event && event.target) {
-        event.target.closest('.nav-item').classList.add('active');
+    
+    // Marcar o item de navegação como ativo
+    const navItem = document.querySelector(`.nav-item[data-page="${pageId}"]`);
+    if (navItem) {
+        navItem.classList.add('active');
     }
     
+    // Renderizar o conteúdo da página
     renderizarTudo();
+    
+    console.log('✅ Navegação concluída para:', pageId);
+}
+
+// ========== INICIALIZAR EVENT LISTENERS DE NAVEGAÇÃO ==========
+function inicializarNavegacao() {
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const pageId = this.getAttribute('data-page');
+            if (pageId) {
+                showPage(pageId);
+            }
+        });
+    });
+    console.log('✅ Event listeners de navegação inicializados');
 }
 
 // ========== MODAL ==========
